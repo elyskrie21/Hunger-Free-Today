@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 
-<style>
-    
-</style>
-{% block  content %}
-<div class="container">
+{% block css %} <link href="{{url_for('static', filename='css/login.css')}}" rel="stylesheet"> {% endblock %}
+
+{% block content %}
+<div class="container pt-5">
     <div class="login-signup">
       <div class="row">
         <div class="col-sm-6 nav-tab-holder">
@@ -156,4 +155,5 @@
       </div>
   </div>
   </div>
-{% endblock  %}
+</div>
+{% endblock %}
