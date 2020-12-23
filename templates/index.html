@@ -1,175 +1,216 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="">
-  <!--<![endif]-->
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+{% extends "base.html" %}
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <style>
-      body {
-        padding-top: 50px;
-        padding-bottom: 20px;
-      }
-    </style>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="css/main.css" />
-
-    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-  </head>
-  <body>
-    <!--[if lt IE 8]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
-        your experience.
-      </p>
-    <![endif]-->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button
-            type="button"
-            class="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#navbar"
-            aria-expanded="false"
-            aria-controls="navbar"
-          >
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
+{% block content %}
+<div class="section section-header">
+    <div class="parallax filter filter-color-red">
+        <div class="image"
+            style="background-image: url('../static/img/header-1.jpeg')">
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control" />
-            </div>
-            <div class="form-group">
-              <input
-                type="password"
-                placeholder="Password"
-                class="form-control"
-              />
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div>
-        <!--/.navbar-collapse -->
-      </div>
-    </nav>
+        <div class="container">
+            <div class="content">
+                <div class="title-area">
+                    <p>Lets make a difference in the world</p>
+                    <h1 class="title-modern">Hunger Free Today</h1>
+                    <h3>Helping food shelters recieve the supplies they need!</h2>
+                    <div class="separator line-separator">♦</div>
+                </div>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Hello, world!</h1>
-        <p>
-          This is a template for a simple marketing or informational website. It
-          includes a large callout called a jumbotron and three supporting
-          pieces of content. Use it as a starting point to create something more
-          unique.
-        </p>
-        <p>
-          <a class="btn btn-primary btn-lg" href="#" role="button"
-            >Learn more &raquo;</a
-          >
-        </p>
-      </div>
+                <div class="button-get-started">
+                    <a href="" class="btn btn-white btn-fill btn-lg ">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+        </div>
     </div>
+</div>
 
+
+<div class="section">
     <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.
-          </p>
-          <p>
-            <a class="btn btn-default" href="#" role="button"
-              >View details &raquo;</a
-            >
-          </p>
+        <div class="row">
+            <div class="title-area">
+                <h2>Our Services</h2>
+                <div class="separator separator-danger">✻</div>
+                <p class="description">We promise you a new look and more importantly, a new attitude. We build that by getting to know you, your needs and creating the best looking clothes.</p>
+            </div>
         </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.
-          </p>
-          <p>
-            <a class="btn btn-default" href="#" role="button"
-              >View details &raquo;</a
-            >
-          </p>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="info-icon">
+                    <div class="icon text-danger">
+                        <i class="pe-7s-graph1"></i>
+                    </div>
+                    <h3>Sales</h3>
+                    <p class="description">We make our design perfect for you. Our adjustment turn our clothes into your clothes.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-icon">
+                    <div class="icon text-danger">
+                        <i class="pe-7s-note2"></i>
+                    </div>
+                    <h3>Content</h3>
+                    <p class="description">We create a persona regarding the multiple wardrobe accessories that we provide..</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-icon">
+                    <div class="icon text-danger">
+                        <i class="pe-7s-music"></i>
+                    </div>
+                    <h3>Music</h3>
+                    <p class="description">We like to present the world with our work, so we make sure we spread the word regarding our clothes.</p>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>
-            Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-            egestas eget quam. Vestibulum id ligula porta felis euismod semper.
-            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-            nibh, ut fermentum massa justo sit amet risus.
-          </p>
-          <p>
-            <a class="btn btn-default" href="#" role="button"
-              >View details &raquo;</a
-            >
-          </p>
-        </div>
-      </div>
-
-      <hr />
-
-      <footer>
-        <p>&copy; Company 2015</p>
-      </footer>
     </div>
-    <!-- /container -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-      window.jQuery ||
-        document.write(
-          '<script src="js/vendor/jquery-1.11.2.min.js"><\/script>'
-        );
-    </script>
+</div>
 
-    <script src="js/vendor/bootstrap.min.js"></script>
 
-    <script src="js/main.js"></script>
+<div class="section section-our-team-freebie">
+    <div class="parallax filter filter-color-black">
+        <div class="image" style="background-image:url('../static/img/canned-goods.jpg')">
+        </div>
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="title-area">
+                        <h2>Who We Are</h2>
+                        <div class="separator separator-danger">✻</div>
+                        <p class="description">We promise you a new look and more importantly, a new attitude. We build that by getting to know you, your needs and creating the best looking clothes.</p>
+                    </div>
+                </div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function (b, o, i, l, e, r) {
-        b.GoogleAnalyticsObject = l;
-        b[l] ||
-          (b[l] = function () {
-            (b[l].q = b[l].q || []).push(arguments);
-          });
-        b[l].l = +new Date();
-        e = o.createElement(i);
-        r = o.getElementsByTagName(i)[0];
-        e.src = "//www.google-analytics.com/analytics.js";
-        r.parentNode.insertBefore(e, r);
-      })(window, document, "script", "ga");
-      ga("create", "UA-XXXXX-X", "auto");
-      ga("send", "pageview");
-    </script>
-  </body>
-</html>
+                <div class="team">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card card-member">
+                                        <div class="content">
+                                            <div class="avatar avatar-danger">
+                                                <img alt="..." class="img-circle" src="../static/img/faces/face_1.jpg"/>
+                                            </div>
+                                            <div class="description">
+                                                <h3 class="title">Tina</h3>
+                                                <p class="small-text">CEO / Co-Founder</p>
+                                                <p class="description">I miss the old Kanye I gotta say at that time I’d like to meet Kanye And I promise the power is in the people and I will use the power given by the people to bring everything I have back to the people.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card card-member">
+                                        <div class="content">
+                                            <div class="avatar avatar-danger">
+                                                <img alt="..." class="img-circle" src="../static/img/faces/face_4.jpg"/>
+                                            </div>
+                                            <div class="description">
+                                                <h3 class="title">Andrew</h3>
+                                                <p class="small-text">Product Designer</p>
+                                                <p class="description">I miss the old Kanye I gotta say at that time I’d like to meet Kanye And I promise the power is in the people and I will use the power given by the people to bring everything I have back to the people.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card card-member">
+                                        <div class="content">
+                                            <div class="avatar avatar-danger">
+                                                <img alt="..." class="img-circle" src="../static/img/faces/face_3.jpg"/>
+                                            </div>
+                                            <div class="description">
+                                                <h3 class="title">Michelle</h3>
+                                                <p class="small-text">Marketing Hacker</p>
+                                                <p class="description">I miss the old Kanye I gotta say at that time I’d like to meet Kanye And I promise the power is in the people and I will use the power given by the people to bring everything I have back to the people.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section section-our-clients-freebie">
+    <div class="container">
+        <div class="title-area">
+            <h5 class="subtitle text-gray">Here are some</h5>
+            <h2>Clients Testimonials</h2>
+            <div class="separator separator-danger">∎</div>
+        </div>
+
+        <ul class="nav nav-text" role="tablist">
+            <li class="active">
+                <a href="#testimonial1" role="tab" data-toggle="tab">
+                    <div class="image-clients">
+                        <img alt="..." class="img-circle" src="../static/img/faces/face_5.jpg"/>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#testimonial2" role="tab" data-toggle="tab">
+                    <div class="image-clients">
+                        <img alt="..." class="img-circle" src="../static/img/faces/face_6.jpg"/>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#testimonial3" role="tab" data-toggle="tab">
+                    <div class="image-clients">
+                        <img alt="..." class="img-circle" src="../static/img/faces/face_2.jpg"/>
+                    </div>
+                </a>
+            </li>
+        </ul>
+
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="testimonial1">
+                <p class="description">
+                    And I used a period because contrary to popular belief I strongly dislike exclamation points! We no longer have to be scared of the truth feels good to be home In Roman times the artist would contemplate proportions and colors. Now there is only one important color... Green I even had the pink polo I thought I was Kanye I promise I will never let the people down. I want a better life for all!
+                </p>
+            </div>
+            <div class="tab-pane" id="testimonial2">
+                <p class="description">Green I even had the pink polo I thought I was Kanye I promise I will never let the people down. I want a better life for all! And I used a period because contrary to popular belief I strongly dislike exclamation points! We no longer have to be scared of the truth feels good to be home In Roman times the artist would contemplate proportions and colors. Now there is only one important color...
+                </p>
+            </div>
+            <div class="tab-pane" id="testimonial3">
+                <p class="description"> I used a period because contrary to popular belief I strongly dislike exclamation points! We no longer have to be scared of the truth feels good to be home In Roman times the artist would contemplate proportions and colors. The 'Gaia' team did a great work while we were collaborating. They provided a vision that was in deep connection with our needs and helped us achieve our goals.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="section section-small section-get-started">
+    <div class="parallax filter">
+        <div class="image"
+            style="background-image: url('../static/img/bottom-pic.jpg')">
+        </div>
+        <div class="container">
+            <div class="title-area">
+                <h2 class="text-white">Do you want to work with us?</h2>
+                <div class="separator line-separator">♦</div>
+                <p class="description"> We are keen on creating a second skin for anyone with a sense of style! We design our clothes having our customers in mind and we never disappoint!</p>
+            </div>
+
+            <div class="button-get-started">
+                <a href="#gaia" class="btn btn-danger btn-fill btn-lg">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}
