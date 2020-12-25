@@ -1,11 +1,24 @@
+.header-title{
+margin: 5rem 0;
+}
+h1{
+font-size: 31px;
+line-height: 40px;
+font-weight: 600;
+color:#4c5357;
+}
+h2{
+color: #5e8396;
+font-size: 21px;
+line-height: 32px;
+font-weight: 400;
+}
 .login-signup {
   padding: 0 0 25px;
 }
 
 .btn-success {
-  background: #23bab5;
   border-radius:0;
-  border: 2px solid #23bab5;
   webkit-transition: all 400ms cubic-bezier(.4,0,.2,1);
   transition: all 400ms cubic-bezier(.4,0,.2,1);
 }
@@ -15,11 +28,11 @@
   border: 2px solid #1aa19d;
   webkit-transition: all 400ms cubic-bezier(.4,0,.2,1);
   transition: all 400ms cubic-bezier(.4,0,.2,1);
-  color: #23BAB5;
+  color:#dc3545;
 }
 
 a {
-  color: #23bab5;
+  color: #6c6c6c;
 }
 
 ul {
@@ -51,7 +64,7 @@ article[role="login"]:hover {
 article[role="login"] h3 {
   font-size: 26px;
   font-weight: 300;
-  color: #23bab5;
+  color:#dc3545;
   margin-bottom: 20px;
 }
 
@@ -75,16 +88,15 @@ article[role="login"] p {
 
 .nav-tab-holder .nav-tabs > li {
   margin-bottom: -3px;
+  background-color:#dc3545;
   text-align: center;
-  padding: 0;
+  padding: 0; 
   display: table-cell;
   float: none;
-  padding: 0;
+  border: 2px solid #404040;
 }
 
 .nav-tab-holder .nav-tabs > li > a {
-  background: #d9d9d9;
-  color: #6c6c6c;
   margin: 0;
   font-size: 18px;
   font-weight: 300;
@@ -92,7 +104,6 @@ article[role="login"] p {
 
 .nav-tab-holder .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   color: #FFF;
-  background-color: #23bab5;
   border: 0;
   border-radius: 0;
 }
@@ -110,7 +121,7 @@ article[role="manufacturer"] {
 }
 
 article[role="manufacturer"] header {
-  background: #23bab5;
+  background:#dc3545;
   color: #fff;
   padding: 10px;
   font-size: 18px;
@@ -136,12 +147,28 @@ article[role="manufacturer"] ul li {
 }
 
 article[role="manufacturer"] ul li i {
-  color: #23bab5;
+  color: #1aa19d;
 }
 
 .login-signup {
   padding: 0 0 25px;
 }
+
+.social-login{
+    width:390px;
+    margin:0 auto;
+    margin-bottom: 14px;
+}
+
+.social-btn{
+    font-weight: 100;
+    color:white;
+    width:190px;
+    font-size: 0.9rem;
+}
+
+.facebook-btn{  background-color:#3C589C; }
+.google-btn{ background-color: #DF4B3B; }
 
 @media only screen and (max-width: 767px) {
   .mobile-pull {
