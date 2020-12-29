@@ -3,7 +3,7 @@
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-business-frontpage/blob/master/LICENSE)
  */
- @import url('https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600');
+@import url('https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600');
 html {
   height: 100%; 
 }
@@ -57,7 +57,7 @@ body {
   width:100%; 
   height:100px; 
 }
-/*  
-*:hover { 
+ 
+/* *:hover { 
    outline:1px blue solid;
 }  */

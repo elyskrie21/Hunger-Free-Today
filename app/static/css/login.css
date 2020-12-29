@@ -1,3 +1,4 @@
+
 .header-title{
 margin: 5rem 0;
 }
@@ -93,7 +94,7 @@ article[role="login"] p {
   padding: 0; 
   display: table-cell;
   float: none;
-  border: 2px solid #404040;
+  border: 2px solid #FFF;
 }
 
 .nav-tab-holder .nav-tabs > li > a {
@@ -113,6 +114,7 @@ article[role="login"] p {
 }
 
 article[role="manufacturer"] {
+  background: #FFF;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 10px rgba(0, 0, 0, 0.24);
   padding: 0 0 40px;

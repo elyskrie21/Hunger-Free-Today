@@ -1,54 +1,52 @@
-{% extends "base.html" %}
-
-{% block css %} <link href="{{url_for('static', filename='css/login.css')}}" rel="stylesheet"> {% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block css %}
+<link href="{{url_for('static', filename='css/login.css')}}" rel="stylesheet"> {% endblock %} {% block content %}
 <div class="container">
-      <div class="col-md-6 mx-auto text-center">
-         <div class="header-title">
-            <h1 class="wv-heading--title">
-               Check out — it’s free!
-            </h1>
-            <h2 class="wv-heading--subtitle">
-               Lorem ipsum dolor sit amet! Neque porro quisquam est qui do dolor amet, adipisci velit...
-            </h2>
-         </div>
-      </div>
-          <div class="login-signup">
-      <div class="row">
-        <div class="col-sm-6 nav-tab-holder">
-        <ul class="nav nav-tabs row" role="tablist">
-          <li role="presentation" class="active col-sm-4"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Admin</a></li>
-          <li role="presentation" class="active col-sm-4"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">User</a></li>
-          <li role="presentation" class="active col-sm-4"><a href="#store" aria-controls="profile" role="tab" data-toggle="tab">Store</a></li>
-        </ul>
-      </div>
+	<div class="col-md-6 mx-auto text-center">
+		<div class="header-title">
+			<h1 class="wv-heading--title ">
+				Check it out — lets make a difference!
+			</h1>
 
-      </div>
+		</div>
+	</div>
+	<div class="login-signup">
+		<div class="row">
+			<div class="col-sm-6 nav-tab-holder">
+				<ul class="nav nav-tabs row" role="tablist">
+					<li role="presentation" class="active col-sm-4"><a href="#User" aria-controls="home" role="tab" data-toggle="tab">User</a></li>
+					<li role="presentation" class="active col-sm-4"><a href="#store" aria-controls="profile" role="tab" data-toggle="tab">Store</a></li>
+					<li role="presentation" class="active col-sm-4"><a href="#foodpantry" aria-controls="profile" role="tab" data-toggle="tab">Food
+							Pantry</a></li>
+				</ul>
+			</div>
+
+		</div>
 
 
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="home">
-          <div class="row">
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="User">
+				<div class="row">
 
-            <div class="col-sm-6 mobile-pull">
-              <article role="login">
-                <h3 class="text-center"><i class="fa fa-lock"></i>USER</h3>
-                <form class="signup" action="index.html" method="post">
+					<div class="col-sm-6 mobile-pull">
+						<article role="login">
+							<h3 class="text-center"><i class="fa fa-lock"></i>USER</h3>
+                <div class="social-login">
+                  <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
+                 <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
+              </div>
+                <form class="signup" action="" method="post" novalidate>
+                  {{userForm.hidden_tag()}}
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="UserName">
+                      {{userForm.username(size=32, placeholder='Username', class='form-control')}}
                   </div>
                   <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email Address">
+                    {{userForm.password(size=32, placeholder='Password', class='form-control')}} 
+                  </div>
+                  <div class="form-group">  
+                    {{userForm.confirm(size=32, placeholder='Confirm Password', class='form-control')}}
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Phone Number">
-                  </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password">
-                  </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Confirm Password">
+                    {{userForm.email(size=32, placeholder='Email Address', class='form-control')}}
                   </div>
                   <div class="form-group">
                     <div class="checkbox">
@@ -58,7 +56,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <input type="submit" class="btn bg-success btn-success btn-block"  value="SUBMIT">
+                    {{userForm.submit(class='btn bg-success btn-success btn-block', size=32)}}
                   </div>
                 </form>
 
@@ -79,9 +77,9 @@
             <div class="col-sm-6">
               <article role="manufacturer"  class="text-center">
                 <header>
-                  ADMIN
+                  User
                 </header>
-                <h1>FREE</h1>
+                <h1>What does a user do?</h1>
                 <ul class="text-left">
                   <li><i class="fa fa-check"></i>  Unlimited  access</li>
                   <li><i class="fa fa-check"></i>  Create Project Lists</li>
@@ -98,16 +96,12 @@
         </div>
         <!-- end of home -->
 
-      <div role="tabpanel" class="tab-pane" id="profile">
+      <div role="tabpanel" class="tab-pane" id="store">
         <div class="row">
 
           <div class="col-sm-6 mobile-pull">
             <article role="login">
-              <h3 class="text-center"><i class="fa fa-lock"></i> Create User Account</h3>
-              <div class="social-login">
-                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
-                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
-              </div>
+              <h3 class="text-center"><i class="fa fa-lock"></i> Store </h3>
               <form class="signup" action="index.html" method="post">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="UserName">
@@ -150,9 +144,9 @@
           <div class="col-sm-6">
             <article role="manufacturer"  class="text-center">
               <header>
-                USER
+                Store
               </header>
-              <h1>FREE</h1>
+              <h1>What does a store do?</h1>
               <ul class="text-left">
                 <li><i class="fa fa-check"></i>  Unlimited Site Access</li>
                 <li><i class="fa fa-check"></i>   Unlimited Site Access</li>
@@ -166,12 +160,12 @@
         </div>
       </div>
 
-  <div role="tabpanel" class="tab-pane" id="store">
+  <div role="tabpanel" class="tab-pane" id="foodpantry">
         <div class="row">
 
           <div class="col-sm-6 mobile-pull">
             <article role="login">
-              <h3 class="text-center"><i class="fa fa-lock"></i> Create User Account</h3>
+              <h3 class="text-center"><i class="fa fa-lock"></i> Food Pantry </h3>
               <form class="signup" action="index.html" method="post">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="UserName">
@@ -214,9 +208,9 @@
           <div class="col-sm-6">
             <article role="manufacturer"  class="text-center">
               <header>
-                USER
+                Food Pantry
               </header>
-              <h1>FREE</h1>
+              <h1>What does a Food Pantry do?</h1>
               <ul class="text-left">
                 <li><i class="fa fa-check"></i>  Unlimited Site Access</li>
                 <li><i class="fa fa-check"></i>   Unlimited Site Access</li>
