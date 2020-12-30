@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app
-from app.forms import LoginFormUser
+from app.forms import LoginFormUser, LoginFormOther
 
 @app.route('/')
 def index():
@@ -9,12 +9,16 @@ def index():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
   userForm = LoginFormUser()
+  otherForm = LoginFormOther()
 
-  if userForm.validate_on_submit():
+  if userForm.submit.data and userForm.validate():
     flash('Login request for user {}'.format(userForm.username.data))
     return redirect(url_for('account'))
+  
+  if otherForm.submit2.data and otherForm.validate():
+    return redirect(url_for('account'))
 
-  return render_template('signup.html', userForm = userForm)
+  return render_template('signup.html', userForm = userForm, otherForm = otherForm)
   
 
 @app.route('/account')

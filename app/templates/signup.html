@@ -14,9 +14,7 @@
 			<div class="col-sm-6 nav-tab-holder">
 				<ul class="nav nav-tabs row" role="tablist">
 					<li role="presentation" class="active col-sm-4"><a href="#User" aria-controls="home" role="tab" data-toggle="tab">User</a></li>
-					<li role="presentation" class="active col-sm-4"><a href="#store" aria-controls="profile" role="tab" data-toggle="tab">Store</a></li>
-					<li role="presentation" class="active col-sm-4"><a href="#foodpantry" aria-controls="profile" role="tab" data-toggle="tab">Food
-							Pantry</a></li>
+					<li role="presentation" class="active col-sm-4"><a href="#store" aria-controls="profile" role="tab" data-toggle="tab">Store/Food Pantry</a></li>
 				</ul>
 			</div>
 
@@ -38,15 +36,27 @@
                   {{userForm.hidden_tag()}}
                   <div class="form-group">
                       {{userForm.username(size=32, placeholder='Username', class='form-control')}}
+                      {% for error in userForm.username.errors %}
+                      <span style='color: red;'>{{error}} </span>
+                      {% endfor %}
                   </div>
                   <div class="form-group">
-                    {{userForm.password(size=32, placeholder='Password', class='form-control')}} 
+                    {{userForm.password(size=32, placeholder='Password', class='form-control')}}
+                    {% for error in userForm.password.errors %}
+                    <span style='color: red;'>{{error}} </span>
+                    {% endfor %}
                   </div>
                   <div class="form-group">  
                     {{userForm.confirm(size=32, placeholder='Confirm Password', class='form-control')}}
+                    {% for error in userForm.confirm.errors %}
+                    <span style='color: red;'>{{error}} </span>
+                    {% endfor %}
                   </div>
                   <div class="form-group">
                     {{userForm.email(size=32, placeholder='Email Address', class='form-control')}}
+                    {% for error in userForm.email.errors %}
+                    <span style='color: red;'>{{error}} </span>
+                    {% endfor %}
                   </div>
                   <div class="form-group">
                     <div class="checkbox">
@@ -101,20 +111,62 @@
 
           <div class="col-sm-6 mobile-pull">
             <article role="login">
-              <h3 class="text-center"><i class="fa fa-lock"></i> Store </h3>
-              <form class="signup" action="index.html" method="post">
+              <h3 class="text-center"><i class="fa fa-lock"></i> Store/Food Pantry </h3>
+              <form class="signup" action="" method="post" novalidate>
+                {{otherForm.hidden_tag()}}
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="UserName">
+                  {{otherForm.username(size=32, placeholder='Username', class='form-control')}}
+                  {% for error in otherForm.username.errors %}
+                  <span style='color: red;'>{{error}} </span>
+                  {% endfor %}
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email Address">
+                  {{otherForm.email(size=32, placeholder='Email', class='form-control')}}
+                  {% for error in otherForm.email.errors %}
+                  <span style='color: red;'>{{error}} </span>
+                  {% endfor %}
                 </div>
-         
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password">
+                  {{otherForm.name(size=32, placeholder='Store/Pantry Name', class='form-control')}}
+                  {% for error in otherForm.name.errors %}
+                  <span style='color: red;'>{{error}} </span>
+                  {% endfor %}
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password">
+                  {{otherForm.storeType(class='form-control')}}
+                  {% for error in otherForm.storeType.errors %}
+                  <span style='color: red;'>{{error}} </span>
+                  {% endfor %}
+                </div>
+                <div class='form-group'>
+                  {{otherForm.phone(size=32, placeholder='Phone', class='form-control')}}
+                  {% for error in otherForm.phone.errors %}
+                  <span style='color: red;'>{{error}} </span>
+                  {% endfor %}
+                </div>
+                <div class="form-group">
+                  {{otherForm.state(placeholder='State', class='form-control')}}
+                  {% for error in otherForm.state.errors %}
+                  <span style='color: red;'>{{error}} </span>
+                  {% endfor %}
+                </div>
+                <div class="form-group">
+                  {{otherForm.zip_code(size=32, placeholder='Zip code', class='form-control')}}
+                  {% for error in otherForm.zip_code.errors %}
+                  <span style='color: red;'>{{error}} </span>
+                  {% endfor %}
+                </div>
+                <div class="form-group">
+                  {{otherForm.password(size=32, placeholder='Password', class='form-control')}}
+                  {% for error in otherForm.password.errors %}
+                  <span style='color: red;'>{{error}} </span>
+                  {% endfor %}
+                </div>
+                <div class="form-group">
+                  {{otherForm.confirm(size=32, placeholder='Confirm Password', class='form-control')}}
+                  {% for error in otherForm.confirm.errors %}
+                  <span style='color: red;'>{{error}} </span>
+                  {% endfor %}
                 </div>
                 <div class="form-group">
                   <div class="checkbox">
@@ -124,7 +176,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="submit" class="btn btn-success btn-block"  value="SUBMIT">
+                    {{otherForm.submit2(class='btn bg-success btn-success btn-block',  size=32)}}
                 </div>
               </form>
               <footer role="signup" class="text-center">
@@ -147,70 +199,6 @@
                 Store
               </header>
               <h1>What does a store do?</h1>
-              <ul class="text-left">
-                <li><i class="fa fa-check"></i>  Unlimited Site Access</li>
-                <li><i class="fa fa-check"></i>   Unlimited Site Access</li>
-                <li><i class="fa fa-check"></i>  Unlimited Site Access</li>
-                <li><i class="fa fa-check"></i>  Unlimited Site Access</li>
-                <li><i class="fa fa-check"></i>   Unlimited Site Access</li>
-                <li><i class="fa fa-check"></i>   Unlimited Site Access</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </div>
-
-  <div role="tabpanel" class="tab-pane" id="foodpantry">
-        <div class="row">
-
-          <div class="col-sm-6 mobile-pull">
-            <article role="login">
-              <h3 class="text-center"><i class="fa fa-lock"></i> Food Pantry </h3>
-              <form class="signup" action="index.html" method="post">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="UserName">
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email Address">
-                </div>
-         
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password">
-                </div>
-                <div class="form-group">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Please accept the terms and conditions to proceed with your request.
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <input type="submit" class="btn btn-success btn-block"  value="SUBMIT">
-                </div>
-              </form>
-              <footer role="signup" class="text-center">
-                <ul>
-                  <li>
-                    <a href="#">Terms of Use</a>
-                  </li>
-                  <li>
-                    <a href="#">Privacy Statement</a>
-                  </li>
-                </ul>
-              </footer>
-
-            </article>
-          </div>
-
-          <div class="col-sm-6">
-            <article role="manufacturer"  class="text-center">
-              <header>
-                Food Pantry
-              </header>
-              <h1>What does a Food Pantry do?</h1>
               <ul class="text-left">
                 <li><i class="fa fa-check"></i>  Unlimited Site Access</li>
                 <li><i class="fa fa-check"></i>   Unlimited Site Access</li>

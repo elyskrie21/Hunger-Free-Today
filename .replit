@@ -1,2 +1,2 @@
 language = "undefined"
-run = "python3 app.py"
+run = "flask run -h '0.0.0.0'"
