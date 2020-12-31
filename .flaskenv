@@ -1,1 +1,3 @@
 FLASK_APP=charity.py
+FLASK_ENV=development
+FLASK_RUN_HOST=192.168.254.78

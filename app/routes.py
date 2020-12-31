@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app
-from app.forms import LoginFormUser, LoginFormOther
+from app.forms import LoginFormUser, LoginFormOther, LoginForm
 
 @app.route('/')
 def index():
@@ -19,7 +19,11 @@ def signup():
     return redirect(url_for('account'))
 
   return render_template('signup.html', userForm = userForm, otherForm = otherForm)
-  
+
+@app.route('/login')
+def login():
+  userForm = LoginForm()
+  return render_template('login.html', userForm=userForm)
 
 @app.route('/account')
 def account():

@@ -59,3 +59,10 @@ class LoginFormOther(FlaskForm):
   def validate_storeType(form, field):
     if field.data == 'Store or Food Pantry?':
       raise ValidationError("Please choose Store or Food Pantry")
+
+class LoginForm(FlaskForm):
+  username = StringField('Username', validators=[DataRequired()])
+  password = PasswordField('Password', validators=[DataRequired(), EqualTo('confirm', message='Passwords must match')])
+  confirm = PasswordField('Reapeat Password', validators=[DataRequired()])
+
+  submit = SubmitField('Sign In')
