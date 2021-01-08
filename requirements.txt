@@ -15,10 +15,12 @@ cachy==0.3.0
 Cerberus==1.3.2
 certifi==2020.12.5
 cffi==1.14.4
+chardet==4.0.0
 cleo==0.7.6
 click==7.1.2
 clikit==0.4.3
 cryptography==3.3.1
+cs50==6.0.2
 curtsies==0.3.4
 cycler==0.10.0
 dephell==0.7.7
@@ -33,12 +35,14 @@ dephell-specifier==0.2.2
 dephell-venvs==0.1.18
 dephell-versioning==0.1.2
 dnspython==2.0.0
+docker==4.4.1
 dockerpty==0.4.1
 docopt==0.6.2
 docutils==0.16
 email-validator==1.1.2
 fissix==20.8.0
 Flask==1.1.2
+Flask-Login==0.5.0
 Flask-Migrate==2.5.3
 Flask-SQLAlchemy==2.4.4
 Flask-WTF==0.14.3
@@ -75,6 +79,7 @@ mistune==0.8.4
 moreorless==0.3.0
 msgpack==1.0.2
 multidict==5.1.0
+nltk==3.5
 numpy==1.19.4
 oauthlib==3.1.0
 opt-einsum==3.3.0
@@ -109,6 +114,7 @@ python-dateutil==2.8.1
 python-editor==1.0.4
 python-jsonrpc-server==0.4.0
 python-language-server==0.21.5
+pyxel @ git+https://github.com/amasad/pyxel@8bcc2266b2fbb65f72ad686952de3838971c136e
 PyYAML==5.3.1
 regex==2020.11.13
 replit==2.0.0
@@ -124,6 +130,10 @@ six==1.15.0
 sounddevice==0.4.1
 SQLAlchemy==1.3.22
 sqlparse==0.4.1
+tensorboard==2.2.2
+tensorboard-plugin-wit==1.7.0
+tensorflow-cpu @ https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.2.0-cp38-cp38-manylinux2010_x86_64.whl
+tensorflow-estimator==2.2.0
 termcolor==1.1.0
 tomlkit==0.5.11
 tqdm==4.54.1

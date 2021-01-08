@@ -30,6 +30,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href='{{url_for("index")}}'>Home <span class="sr-only">(current)</span></a>
             </li>
+            <li class='nav-item active'>
+                <a class="nav-link" href="{{url_for('logout')}}"><span class="fas fa-sign-out-alt"></span>Logout</a>
+            </li>
             <!-- This menu is hidden in bigger devices with d-sm-none. 
            The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
             <li class="nav-item dropdown d-sm-block d-md-none">
@@ -57,41 +60,20 @@
             </li>
             <!-- /END Separator -->
             <!-- Menu with submenu -->
-            <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+            <a href="#" class="bg-dark list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-dashboard fa-fw mr-3"></span>
+                    <span class="fa fa-tachometer-alt fa-fw mr-3"></span>
                     <span class="menu-collapsed">Dashboard</span>
-                    <span class="submenu-icon ml-auto"></span>
                 </div>
             </a>
             <!-- Submenu content -->
-            <div id='submenu1' class="collapse sidebar-submenu">
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Charts</span>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Reports</span>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Tables</span>
-                </a>
-            </div>
-            <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+            <a href="#" class="bg-dark list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-user fa-fw mr-3"></span>
                     <span class="menu-collapsed">Profile</span>
-                    <span class="submenu-icon ml-auto"></span>
                 </div>
             </a>
             <!-- Submenu content -->
-            <div id='submenu2' class="collapse sidebar-submenu">
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Settings</span>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Password</span>
-                </a>
-            </div>
             <a href="#" class="bg-dark list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-tasks fa-fw mr-3"></span>
@@ -111,7 +93,7 @@
             </a>
             <a href="#" class="bg-dark list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-envelope-o fa-fw mr-3"></span>
+                    <span class="fa fa-envelope fa-fw mr-3"></span>
                     <span class="menu-collapsed">Messages <span class="badge badge-pill badge-primary ml-2">5</span></span>
                 </div>
             </a>
@@ -124,15 +106,23 @@
                     <span class="menu-collapsed">Help</span>
                 </div>
             </a>
-            <a href="#top" data-toggle="sidebar-colapse" class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span id="collapse-icon" class="fa fa-2x mr-3"></span>
-                    <span id="collapse-text" class="menu-collapsed">Collapse</span>
-                </div>
-            </a>
         </ul><!-- List Group END-->
     </div><!-- sidebar-container END -->
     <!-- MAIN -->
+    {% if current_user.storeType is not none() %} 
+    <div class='col p-4'>
+      <div class="container">
+        <h1> {{current_user.username}} </h1>
+        <h2> {{current_user.store_type}} </h2>
+	    <div class="row">
+		    <button type="button" class="btn bg-blue fs-it-btn">
+		    <i class="fa fa-plus" aria-hidden="true"></i>
+		    <span class="fs-it-btn-vertical-line"></span>
+		    Click me</button>
+    	</div>
+      </div>
+    </div>
+    {% endif %}
     <div class="col p-4">
         <h1 class="display-4">Collapsing Sidebar Menu</h1>
         <div class="card">
