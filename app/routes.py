@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from app import app, db
 from app.forms import LoginFormUser, LoginFormOther, LoginForm
 from flask_login import current_user, login_user, logout_user
-from app.models import User, Store 
+from app.models import User, UserData
 from werkzeug.urls import url_parse
 from flask_login import login_required
 
@@ -28,9 +28,10 @@ def signup():
     return redirect(url_for('account'))
   
   if otherForm.submit2.data and otherForm.validate():
-    store = Store(username=otherForm.username.data, email=otherForm.email.data, name=otherForm.name.data, state=otherForm.state.data, zip_code=otherForm.zip_code.data,phone=otherForm.phone.data, store_type=otherForm.storeType.data)
+    store = User(username=otherForm.username.data, email=otherForm.email.data, user_data= UserData(name=otherForm.name.data, state=otherForm.state.data, zip_code=otherForm.zip_code.data, phone=otherForm.phone.data, store_type=otherForm.storeType.data))
+
     store.set_password(otherForm.password.data)
-    db.session.add(store)
+    db.session.add(storeData)
     db.session.commit()
     login_user(store, remember=otherForm.remember.data)
     return redirect(url_for('account'))
@@ -48,15 +49,14 @@ def login():
     user = User.query.filter_by(username=userForm.username.data).first()
     store = Store.query.filter_by(username=userForm.username.data).first()
     
-    if user is None or not user.check_password(userForm.password.data):
-      if store is None or not store.check_password(userForm.password.data):
+    if user is not None and user.check_password(userForm.password.data):
+      login_user(user, remember=userForm.remember.data)
+    elif store is not None and store.check_password(userForm.password.data):
+      login_user(store, remember=userForm.remember.data)
+    else:
         flash('Invalid username or password')
         return redirect(url_for('login'))
-      else:
-        login_user(store, remember=userForm.remember.data)
-    else:
-      login_user(user, remember=userForm.remember.data)
-    
+      
     next_page = request.args.get('next')
     if not next_page or url_parse(next_page).netloc != '':
       next_page = url_for('index')
