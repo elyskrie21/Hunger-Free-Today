@@ -8,7 +8,7 @@ class User(UserMixin, db.Model):
   username = db.Column(db.String(64), index=True, unique=True)
   email = db.Column(db.String(120), index=True, unique=True)
   password_hash = db.Column(db.String(120))
-  user_data = db.relationship('UserData', backref='owner')
+  user_data = db.relationship('UserData', backref='user')
 
   def set_password(self, password):
     self.password_hash = generate_password_hash(password)
@@ -28,8 +28,8 @@ class UserData(db.Model):
   phone = db.Column(db.String(64), index=True, unique=True)
   state = db.Column(db.String(64), index=True)
   zip_code = db.Column(db.Integer, index=True)
-  requested_items = db.relationship('RequestedItem', backref='requester')
-  bought_items = db.relationship('BoughtItem', backref='buyer')
+  requested_items = db.relationship('RequestedItem', backref='data_user')
+  bought_items = db.relationship('BoughtItem', backref='data_user')
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
   def __repr__(self):
