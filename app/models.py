@@ -9,7 +9,9 @@ class User(UserMixin, db.Model):
   email = db.Column(db.String(120), index=True, unique=True)
   password_hash = db.Column(db.String(120))
   user_data = db.relationship('UserData', backref='user')
-
+  requested_items = db.relationship('RequestedItem', backref='user')
+  bought_items = db.relationship('BoughtItem', backref='user')
+  
   def set_password(self, password):
     self.password_hash = generate_password_hash(password)
   
@@ -28,8 +30,6 @@ class UserData(db.Model):
   phone = db.Column(db.String(64), index=True, unique=True)
   state = db.Column(db.String(64), index=True)
   zip_code = db.Column(db.Integer, index=True)
-  requested_items = db.relationship('RequestedItem', backref='data_user')
-  bought_items = db.relationship('BoughtItem', backref='data_user')
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
   def __repr__(self):
@@ -43,7 +43,7 @@ class RequestedItem(db.Model):
   image = db.Column(db.String, index=True)
   price = db.Column(db.Numeric(10,2), index=True)
   quantity = db.Column(db.Integer, index=True)
-  user_data_id = db.Column(db.Integer, db.ForeignKey('user_data.id'))
+  user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
   def __repr__(self):
     return '<Item {}>'.format(self.name)
@@ -55,7 +55,7 @@ class BoughtItem(db.Model):
   price = db.Column(db.Integer, index=True)
   quantity = db.Column(db.Integer, index=True)
   food_pantry = db.Column(db.String(120), index=True)
-  user_data_id = db.Column(db.Integer, db.ForeignKey('user_data.id'))
+  user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
   def __repr__(self):
     return '<Item {}>'.format(self.name)

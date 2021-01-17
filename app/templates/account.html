@@ -109,11 +109,11 @@
         </ul><!-- List Group END-->
     </div><!-- sidebar-container END -->
     <!-- MAIN -->
-    {% if current_user.store_type is not none() %} 
+    {% if current_user.user_data.store_type is not none() %} 
     <div class='col p-4'>
       <div class="container">
         <h1> {{current_user.username}} </h1>
-        <h2> {{current_user.store_type}} </h2>
+        <h2> {{current_user.user_data.store_type}} </h2>
 	    <div class="row">
 		    <button type="button" class="btn bg-blue fs-it-btn">
 		    <i class="fa fa-plus" aria-hidden="true"></i>

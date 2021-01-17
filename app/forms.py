@@ -84,5 +84,5 @@ class ItemForm(FlaskForm):
   name = StringField('Name', validators=[DataRequired()])
   description = StringField('Description', validators=[DataRequired()])
   price = DecimalField('Price', places=2, validators=[DataRequired()])
-  image = FileField('Image File', )
-  quanity = StringField()
+  image = FileField('Image File')
+  quantity = StringField()
