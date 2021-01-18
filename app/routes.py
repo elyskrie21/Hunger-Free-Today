@@ -71,6 +71,7 @@ def login():
             return redirect(url_for('login'))
 
         login_user(user, remember=userForm.remember.data)
+
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
@@ -79,9 +80,9 @@ def login():
     return render_template('login.html', userForm=userForm)
 
 
-@app.route('/request', methods=['POST'])
+@app.route('/requestItem', methods=['POST'])
 @login_required
-def request():
+def requestItem():
     form = ItemForm()
 
     if form.validate_on_submit():
@@ -107,7 +108,8 @@ def logout():
 @app.route('/account')
 @login_required
 def account():
-    return render_template('account.html')
+    user = load_user(current_user.get_id())
+    return render_template('account.html', user=user)
 
 
 @app.route('/contact')
