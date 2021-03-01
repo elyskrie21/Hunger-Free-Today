@@ -15,7 +15,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
   <link rel='stylesheet' href='{{url_for("static", filename="css/account.css")}}'>
-  
+  {% block css %} {% endblock %}
+
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-primary bg-dark">
@@ -109,13 +110,11 @@
         </ul><!-- List Group END-->
     </div><!-- sidebar-container END -->
     <!-- MAIN -->
-    {% if current_user %} 
     <div class='col p-4'>
       <div class="container">
         <h1> {{user.username}} </h1>
-    
-            {{user.user_data.store_type}}
-      
+        {{user.user_data.store_type}}
+        <img src='{{user.requested_items[0].image}}''
 	    <div class="row">
 		    <button type="button" class="btn bg-blue fs-it-btn">
 		    <i class="fa fa-plus" aria-hidden="true"></i>
@@ -124,9 +123,9 @@
     	</div>
       </div>
     </div>
-    {% endif %}
     <div class="col p-4">
         <h1 class="display-4">Collapsing Sidebar Menu</h1>
+        {% block item  %}{% endblock %}
         <div class="card">
             <h5 class="card-header font-weight-light">Requirements</h5>
             <div class="card-body">

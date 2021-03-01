@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, DecimalField, FileField, ValidationError
+from flask_wtf.file import FileField, FileRequired
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, DecimalField, ValidationError
 from wtforms.validators import DataRequired, Email, EqualTo
 import phonenumbers
 import re 
@@ -84,5 +85,7 @@ class ItemForm(FlaskForm):
   name = StringField('Name', validators=[DataRequired()])
   description = StringField('Description', validators=[DataRequired()])
   price = DecimalField('Price', places=2, validators=[DataRequired()])
-  image = FileField('Image File')
+  photo = FileField(validators=[FileRequired()])
   quantity = StringField()
+
+  submit = SubmitField('Request Item')

@@ -1,0 +1,78 @@
+{% extends 'account.html' %}
+{% block css %}<link href="{{url_for('static', filename='css/login.css')}}" rel="stylesheet"> {% endblock %}
+{% block item %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div id='Carousel' class='carousel slide'>
+            <ol class='carousel-indicators'>
+              <li data-target='#Carousel' data-slide-to="0" class="active"></li>
+              <li data-target="#Carousel" data-slide-to="1"></li>
+              <li data-target="#Carousel" data-slide-to="2"></li>
+            </ol>
+            <div class='carousel-inner'>
+              <div class="item active">
+                {% for item in user.requested_item %}
+                <div> 
+                  <p> {{item.name}} </p>
+                  <p> {{item.description}} </p>
+                </div>
+                {% endfor %}
+              </div>
+              <div class="item">
+                <div id="trending_gifs2" class="row">
+                </div>
+              </div>
+              <div class="item ">
+                <div id="trending_gifs3" class="row">
+                </div>
+              </div>
+            </div>
+            <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
+            <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
+          </div>
+        </div>
+      </div>
+  </div>
+<form class="signup" action="" method="post" enctype="multipart/form-data" novalidate>
+	{{itemForm.hidden_tag()}}
+	<div class="form-group">
+		{{itemForm.name(size=32, placeholder='Item Name', class='form-control')}} {% for error in itemForm.name.errors %}
+		<span style="color: red">{{error}} </span>
+            {% endfor %}
+            </div>
+  <div class="form-group">
+    {{itemForm.description(placeholder='Item Description', class='form-control')}} {% for error in itemForm.description.errors %}
+    <span style="color: red">{{error}} </span>
+    {% endfor %}
+  </div>
+  <div class="form-group">
+    {{itemForm.price(placeholder='Item Price', class='form-control')}} {% for error in itemForm.price.errors %}
+    <span style="color: red">{{error}} </span>
+    {% endfor %}
+  </div>
+  <div class="form-group">
+    {{itemForm.photo(placeholder='Item Image', class='form-control')}} {% for error in itemForm.photo.errors %}
+    <span style="color: red">{{error}} </span>
+    {% endfor %}
+  </div>
+  <div class="form-group">
+    {{itemForm.quantity(placeholder='Item Quantity', class='form-control')}} {% for error in itemForm.quantity.errors %}
+    <span style="color: red">{{error}} </span>
+    {% endfor %}
+  </div>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+      <li><span style='color: red'>{{ message }}</span></li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+  <div class="form-group">
+    {{itemForm.submit(class='btn bg-success btn-success btn-block',
+    size=32)}}
+  </div>
+</form>
+{% endblock %}
