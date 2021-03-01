@@ -8,6 +8,7 @@ from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 from flask_login import login_required
 
+
 @login.user_loader
 def load_user(user_id):
     try:
@@ -32,8 +33,8 @@ def signup():
 
     if userForm.submit.data and userForm.validate():
         user = User(
-          username=userForm.username.data, 
-          email=userForm.email.data)
+            username=userForm.username.data,
+            email=userForm.email.data)
         user.set_password(userForm.password.data)
         db.session.add(user)
         db.session.commit()
@@ -42,16 +43,16 @@ def signup():
 
     if otherForm.submit2.data and otherForm.validate():
         store = User(
-          username=otherForm.username.data,
-          email=otherForm.email.data)
+            username=otherForm.username.data,
+            email=otherForm.email.data)
         store.set_password(otherForm.password.data)
 
         user_data = UserData(
-          name=otherForm.name.data, state=otherForm.state.data,
-          zip_code=otherForm.zip_code.data, 
-          phone=otherForm.phone.data, 
-          store_type=otherForm.storeType.data, 
-          user=store)
+            name=otherForm.name.data, state=otherForm.state.data,
+            zip_code=otherForm.zip_code.data,
+            phone=otherForm.phone.data,
+            store_type=otherForm.storeType.data,
+            user=store)
 
         db.session.add(store)
         db.session.add(user_data)
@@ -86,55 +87,55 @@ def login():
 
     return render_template('login.html', userForm=userForm)
 
+
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('login'))
 
+
 @app.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
     user = load_user(current_user.get_id())
-    form = ItemForm()
 
-    if form.validate_on_submit():
-      f = form.photo.data
-      filename = secure_filename(f.filename)
-      f.save(os.path.join(
-        app.instance_path, 'photos', filename
-      ))
-
-      requestedItem = RequestedItem(
-        name=form.name.data,
-        description=form.description.data,
-        image=filename,
-        price=form.price.data,
-        quantity=form.quantity.data,
-        user=user
-      )
-      db.session.add(requestedItem)
-      db.session.commit()
-
-      return redirect(url_for('account'))
-      
     if user.user_data.store_type == 'Food Pantry':
-      print(user.user_data.store_type)
-      return render_template('pantry.html', user=user, itemForm=form)
+        print(user.user_data.store_type)
+        return render_template('pantry.html', user=user, itemForm=form)
     elif user.user_data.store_type == "Store":
-      return render_template('store.html', user=user)
+        return render_template('store.html', user=user)
     else:
-      return render_template('user.html', user=user)
+        return render_template('user.html', user=user)
+
 
 @app.route('/contact')
 def contact():
     return render_template("contact.html")
 
+
 @app.route('/requestitem', methods=['POST'])
 @login_required
 def requestItem():
-  user = load_user(current_user.get_id())
-  form = itemForm()
+    user = load_user(current_user.get_id())
+    form = ItemForm()
 
+    if form.validate_on_submit():
+        f = form.photo.data
+        filename = secure_filename(f.filename)
+        f.save(os.path.join(
+            app.instance_path, 'photos', filename
+        ))
+
+        requestedItem = RequestedItem(
+            name=form.name.data,
+            description=form.description.data,
+            image=filename,
+            price=form.price.data,
+            quantity=form.quantity.data,
+            user=user
+        )
+        db.session.add(requestedItem)
+        db.session.commit()
 
 
 @app.errorhandler(404)
