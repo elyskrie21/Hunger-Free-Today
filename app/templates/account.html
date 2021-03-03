@@ -1,128 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>Hunger Free Today</title>
+    <title>Hunger Free Today</title>
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <!-- Icons and Font -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Icons and Font -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-  <link rel='stylesheet' href='{{url_for("static", filename="css/account.css")}}'>
-  {% block css %} {% endblock %}
+    <link rel='stylesheet' href='{{url_for("static", filename="css/account.css")}}'>
+    {% block css %} {% endblock %}
 
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary bg-dark">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">
-      <span class="menu-collapsed">Hunger Free Today</span>
-    </a>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href='{{url_for("index")}}'>Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class='nav-item active'>
-                <a class="nav-link" href="{{url_for('logout')}}"><span class="fas fa-sign-out-alt"></span>Logout</a>
-            </li>
-            <!-- This menu is hidden in bigger devices with d-sm-none. 
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary bg-dark">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <span class="menu-collapsed">Hunger Free Today</span>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href='{{url_for("index")}}'>Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class='nav-item active'>
+                    <a class="nav-link" href="{{url_for('logout')}}"><span class="fas fa-sign-out-alt"></span>Logout</a>
+                </li>
+                <!-- This menu is hidden in bigger devices with d-sm-none. 
            The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
-            <li class="nav-item dropdown d-sm-block d-md-none">
-                <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Menu </a>
-                <div class="dropdown-menu" aria-labelledby="smallerscreenmenu">
-                    <a class="dropdown-item" href="#top">Dashboard</a>
-                    <a class="dropdown-item" href="#top">Profile</a>
-                    <a class="dropdown-item" href="#top">Tasks</a>
-                    <a class="dropdown-item" href="#top">Etc ...</a>
+                <li class="nav-item dropdown d-sm-block d-md-none">
+                    <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"> Menu </a>
+                    <div class="dropdown-menu" aria-labelledby="smallerscreenmenu">
+                        <a class="dropdown-item" href="#top">Dashboard</a>
+                        <a class="dropdown-item" href="#top">Profile</a>
+                        <a class="dropdown-item" href="#top">Tasks</a>
+                        <a class="dropdown-item" href="#top">Etc ...</a>
+                    </div>
+                </li><!-- Smaller devices menu END -->
+            </ul>
+        </div>
+    </nav><!-- NavBar END -->
+    <!-- Bootstrap row -->
+    <div class="row" id="body-row">
+        <!-- Sidebar -->
+        <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+            <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+            <!-- Bootstrap List Group -->
+            <ul class="list-group">
+                <!-- Separator with title -->
+                <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                    <small>MAIN MENU</small>
+                </li>
+                <!-- /END Separator -->
+                <!-- Menu with submenu -->
+                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-tachometer-alt fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Dashboard</span>
+                    </div>
+                </a>
+                <!-- Submenu content -->
+                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-user fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Profile</span>
+                    </div>
+                </a>
+                <!-- Submenu content -->
+                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-tasks fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Tasks</span>
+                    </div>
+                </a>
+                <!-- Separator with title -->
+                <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                    <small>OPTIONS</small>
+                </li>
+                <!-- /END Separator -->
+                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-calendar fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Calendar</span>
+                    </div>
+                </a>
+                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-envelope fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Messages <span
+                                class="badge badge-pill badge-primary ml-2">5</span></span>
+                    </div>
+                </a>
+                <!-- Separator without title -->
+                <li class="list-group-item sidebar-separator menu-collapsed"></li>
+                <!-- /END Separator -->
+                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-question fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Help</span>
+                    </div>
+                </a>
+            </ul><!-- List Group END-->
+        </div><!-- sidebar-container END -->
+        <!-- MAIN -->
+        <div class='col p-4'>
+            <div class="container">
+                <h1>Dashboard</h1>
+                <p> {{user.username}} </p>
+                {{user.user_data.store_type}}
+                <img src='{{user.requested_items[0].image}}'>
+                <div class="row">
+                    <button type="button" class="btn bg-blue fs-it-btn">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <span class="fs-it-btn-vertical-line"></span>
+                        Click me</button>
                 </div>
-            </li><!-- Smaller devices menu END -->
-        </ul>
-    </div>
-</nav><!-- NavBar END -->
-<!-- Bootstrap row -->
-<div class="row" id="body-row">
-    <!-- Sidebar -->
-    <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
-        <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
-        <!-- Bootstrap List Group -->
-        <ul class="list-group">
-            <!-- Separator with title -->
-            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <small>MAIN MENU</small>
-            </li>
-            <!-- /END Separator -->
-            <!-- Menu with submenu -->
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-tachometer-alt fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Dashboard</span>
-                </div>
-            </a>
-            <!-- Submenu content -->
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-user fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Profile</span>
-                </div>
-            </a>
-            <!-- Submenu content -->
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-tasks fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Tasks</span>
-                </div>
-            </a>
-            <!-- Separator with title -->
-            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <small>OPTIONS</small>
-            </li>
-            <!-- /END Separator -->
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-calendar fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Calendar</span>
-                </div>
-            </a>
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-envelope fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Messages <span class="badge badge-pill badge-primary ml-2">5</span></span>
-                </div>
-            </a>
-            <!-- Separator without title -->
-            <li class="list-group-item sidebar-separator menu-collapsed"></li>
-            <!-- /END Separator -->
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-question fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Help</span>
-                </div>
-            </a>
-        </ul><!-- List Group END-->
-    </div><!-- sidebar-container END -->
-    <!-- MAIN -->
-    <div class='col p-4'>
-      <div class="container">
-        <h1> {{user.username}} </h1>
-        {{user.user_data.store_type}}
-        <img src='{{user.requested_items[0].image}}'>
-	    <div class="row">
-		    <button type="button" class="btn bg-blue fs-it-btn">
-		    <i class="fa fa-plus" aria-hidden="true"></i>
-		    <span class="fs-it-btn-vertical-line"></span>
-		    Click me</button>
-    	</div>
-      </div>
-    </div>
+            </div>
+        </div>
+        <!--
     <div class="col p-4">
         <h1 class="display-4">Collapsing Sidebar Menu</h1>
         {% block item  %}{% endblock %}
@@ -136,12 +146,20 @@
                 </ul>
             </div>
         </div>
-    </div><!-- Main Col END -->
-    <link src='{{url_for("static", filename="js/account.js")}}'>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</div>
-<!-- body-row END -->
+    </div>-->
+        <!-- Main Col END -->
+        <link src='{{url_for("static", filename="js/account.js")}}'>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </div>
+    <!-- body-row END -->
 </body>
+
 </html>
