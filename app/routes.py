@@ -98,6 +98,7 @@ def logout():
 @login_required
 def account():
     user = load_user(current_user.get_id())
+    form = ItemForm()
 
     if user.user_data.store_type == 'Food Pantry':
         print(user.user_data.store_type)
@@ -112,6 +113,10 @@ def account():
 def contact():
     return render_template("contact.html")
 
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user = load_user(current_user.get_id())
 
 @app.route('/requestitem', methods=['POST'])
 @login_required
